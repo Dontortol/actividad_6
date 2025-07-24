@@ -1,5 +1,37 @@
 suma = []
 
+def ingresar_numeros():
+    while True:
+        print("1. Ingresar numero:\n"
+              "2. ver suma total, promedio, cuantos positivos y negativos \n"
+              "3. regresar al menu\n")
+        select1 = input("Ingrese una opcion: ")
+        match select1:
+            case "1":
+                num = int(input("Ingrese un numero: "))
+                suma.append(num)
+            case "2":
+                for i in suma:
+                    positivo = 0
+                    negativo = 0
+                    if i < 0:
+                        negativo += 1
+                    else:
+                        positivo += 1
+
+                print(f"La suma total es = {sum(suma)}\n"
+                      f"El promedio de = {sum(suma) / len(suma)} \n"
+                      f"la cantidad de positivos = {positivo} \n"
+                      f"la cantidad de negativos = {negativo} \n")
+
+                break
+            case "3":
+                print("Regresando al menu")
+                break
+            case _:
+                print("No se puede ingresar esa opcion")
+
+
 def area_triangulo(a, b):
     area = a * b/2
     return area
@@ -31,6 +63,25 @@ def promedio():
             case _:
                 print("opcion no valida")
 
+def mayor_menor():
+    numeros = []
+    while True:
+        print("\n1. ingresar numero: \n"
+              "2. ver cual es el mayor y el menor\n"
+              "3. regresar al menu \n")
+        mm_select = input("Ingrese una opcion: ")
+        match mm_select:
+            case "1":
+                a = int(input("Ingrese un numero: "))
+                numeros.append(a)
+            case "2":
+                print(f"El mayor de la calificacion es = {max(numeros)}\n"
+                      f"El menor de la calificacion es = {min(numeros)}")
+            case "3":
+                print("Regresando al menu \n")
+                break
+            case _:
+                print("opcion no valida")
 
 while True:
     print("----Bienvenido al menu----")
@@ -43,33 +94,7 @@ while True:
     select = input("Ingrese una opcion: ")
     match select:
         case "1":
-            while True:
-                print("1. Ingresar numero:\n"
-                      "2. ver suma total, promedio, cuantos positivos y negativos \n"
-                      "3. regresar al menu\n")
-                select1 = input("Ingrese una opcion: ")
-                match select1:
-                    case "1":
-                        num = int(input("Ingrese un numero: "))
-                        suma.append(num)
-                    case "2":
-                        print(f"La suma total es = {sum(suma)}\n"
-                              f"El promedio de = {sum(suma)/len(suma)} \n")
-                        for i in suma:
-                            ver_negativos = 0
-                            ver_positivos = 0
-                            if not i >= 0:
-                                ver_negativos += 1
-                                print("Cantidad de negativos:",ver_positivos)
-                            else:
-                                ver_positivos += 1
-                                print("Cantidad de positivos:",ver_positivos)
-                        break
-                    case "3":
-                        print("Regresando al menu")
-                        break
-                    case _:
-                        print("No se puede ingresar esa opcion")
+            ingresar_numeros()
         case "2":
             print("Calculadora de area de un triangulo")
             a = int(input("Ingrese la base: "))
@@ -82,7 +107,7 @@ while True:
         case "4":
             promedio()
         case "5":
-            pass
+            mayor_menor()
         case "6":
             print("Saliendo del programa")
             break
