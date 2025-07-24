@@ -1,5 +1,15 @@
 suma = []
 
+def area_triangulo(a, b):
+    area = a * b/2
+    return area
+
+def impar_par(numero):
+    if numero % 2 == 0:
+        print("par")
+    else:
+        pass
+
 while True:
     print("----Bienvenido al menu----")
     print("1. Ingresar numeros\n"
