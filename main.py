@@ -6,9 +6,31 @@ def area_triangulo(a, b):
 
 def impar_par(numero):
     if numero % 2 == 0:
-        print("par")
+        print("Es par")
+        return ''
     else:
-        pass
+        print("Es impar")
+        return ''
+
+def promedio():
+    prome = []
+    while True:
+        print("\n1. ingresar calificacion \n"
+              "2. Conocer el promedio \n"
+              "3. Regresar al menu \n")
+        prom_select = input("Ingrese una opcion: ")
+        match prom_select:
+            case "1":
+                p = int(input("Ingrese un numero: "))
+                prome.append(p)
+            case "2":
+                print(f"El promedio de las calificaciones es = {sum(prome)/len(prome)}")
+            case "3":
+                print("Regresando al menu \n")
+                break
+            case _:
+                print("opcion no valida")
+
 
 while True:
     print("----Bienvenido al menu----")
@@ -32,13 +54,35 @@ while True:
                         suma.append(num)
                     case "2":
                         print(f"La suma total es = {sum(suma)}\n"
-                              f"El promedio de = {sum(suma)/len(suma)} \n"
-                              f"la cantidad de positivos es de = {len(suma) > 0} \n"
-                              f"la cantidad de negativos es de = {len(suma) < 0} \n")
+                              f"El promedio de = {sum(suma)/len(suma)} \n")
+                        for i in suma:
+                            ver_negativos = 0
+                            ver_positivos = 0
+                            if not i >= 0:
+                                ver_negativos += 1
+                                print("Cantidad de negativos:",ver_positivos)
+                            else:
+                                ver_positivos += 1
+                                print("Cantidad de positivos:",ver_positivos)
                         break
                     case "3":
                         print("Regresando al menu")
                         break
+                    case _:
+                        print("No se puede ingresar esa opcion")
+        case "2":
+            print("Calculadora de area de un triangulo")
+            a = int(input("Ingrese la base: "))
+            b = int(input("Ingrese la altura: "))
+            print(f"El area del triangulo es: {area_triangulo(a, b)}")
+        case "3":
+            print("Verificar si un numero es par o impar")
+            numero = int(input("Ingrese un numero: "))
+            print(f" {impar_par(numero)}")
+        case "4":
+            promedio()
+        case "5":
+            pass
         case "6":
             print("Saliendo del programa")
             break
