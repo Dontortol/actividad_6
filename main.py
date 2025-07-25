@@ -11,9 +11,9 @@ def ingresar_numeros():
                 num = int(input("Ingrese un numero: "))
                 suma.append(num)
             case "2":
+                positivo = 0
+                negativo = 0
                 for i in suma:
-                    positivo = 0
-                    negativo = 0
                     if i < 0:
                         negativo += 1
                     else:
